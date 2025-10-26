@@ -106,3 +106,9 @@ p{
     max-width: 320px;
     box-shadow: 3px 3px 5px hsl(0, 0%, 50%);
 }
+
+.quote-box:hover{
+    transform: translateY(-5px);
+    box-shadow: 6px 10px 10px hsl(0, 0%, 50%);
+    cursor: pointer;
+}
