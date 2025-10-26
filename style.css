@@ -112,3 +112,24 @@ p{
     box-shadow: 6px 10px 10px hsl(0, 0%, 50%);
     cursor: pointer;
 }
+
+.signin-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.signin-form form{
+    border-style: groove;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.input-box{
+    border-bottom: 2px solid hsl(0, 0%, 0%);
+    margin: 30px 0;
+    height: 40px;
+    width: 100%;
+}
+
