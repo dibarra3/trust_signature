@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trust Signature</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="style2.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css"/>
 </head>
 <body>
     <nav id="nav-bar">
         <div class="logo">Trust Signature</div>
         <div>
             <ul class="links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -21,48 +20,45 @@
         <div class="welcome-section">
             <h1>Welcome to Trust Signature</h1>
             <p>Click below to sign into your account</p>
-            <a href="signin.html">
-            <button class="signin">Sign In</button>
-            </a>
+            <a class="signin btn" href="/signin">Sign In</a>
             <p>Don't have an account?</p>
-            <button class="creaccount">Create Account</button>
+            <a class="creaccount btn" href="/signup">Create Account</a>
         </div>
     </section>
-
     <div class="quote-desc">
-        <h3>See what other customers have to say</h3>
+        <h2>See what other customers have to say</h2>
         <p>Millions of people love Trust Signature</p>
     </div>
     <section id="quote-grid">
 
         <div class="quote-box">
             <p>"Trust signature is goated!"</p>
-            <h4><img src="pfp.png" alt="pfp holder" style="width:30px;height:30px;"> John</h4>
+            <h4><img src="../pfp.png" alt="pfp holder" style="width:30px;height:30px;"> John</h4>
         </div>
 
         <div class="quote-box">
             <p>"Trust signature is goated!"</p>
-            <h4><img src="pfp.png" alt="pfp holder" style="width:30px;height:30px;"> Emily</h4>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> Emily</h4>
         </div>
 
         <div class="quote-box">
             <p>"Trust signature is goated!"</p>
-            <h4><img src="pfp.png" alt="pfp holder" style="width:30px;height:30px;"> AJ</h4>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> AJ</h4>
         </div>
 
         <div class="quote-box">
             <p>"Trust signature is goated!"</p>
-            <h4><img src="pfp.png" alt="pfp holder" style="width:30px;height:30px;"> Heather</h4>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> Heather</h4>
         </div>
 
         <div class="quote-box">
             <p>"Trust signature is goated!"</p>
-            <h4><img src="pfp.png" alt="pfp holder" style="width:30px;height:30px;"> Roger</h4>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> Roger</h4>
         </div>
 
         <div class="quote-box">
             <p>"Trust signature is goated!"</p>
-            <h4><img src="pfp.png" alt="pfp holder" style="width:30px;height:30px;"> Julia</h4>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> Julia</h4>
         </div>
     </section>
 </body>

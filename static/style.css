@@ -58,25 +58,25 @@ p{
 }
 
 #welcome .signin{
-    background-color: hsl(239, 98%, 60%);
+    font-style: 25px;
+    background-color: hsl(312, 68%, 46%);
     color: hsl(0, 0%, 100%);
     border-radius: 25px;
     min-width: 150px;
     font-size: 13px;
-    margin: 10px 0px;
 }
 
 #welcome .creaccount{
+    font-style: 25px;
     background-color: hsl(0, 0%, 0%);
     color: hsl(0, 0%, 100%);
     border-radius: 25px;
     min-width: 150px;
     font-size: 13px;
-    margin-top: 10px;
 }
 
 #welcome .signin:hover{
-    background-color: hsl(239, 98%, 70%);
+    background-color: hsl(317, 55%, 31%);
 }
 
 #welcome .creaccount:hover{
@@ -85,9 +85,10 @@ p{
 
 .welcome-section{
     text-align: center;
-    background-color: hsl(0, 0%, 90%);
-    border-radius: 15px;
-    padding: 30px;
+}
+
+.quote-desc{
+    text-align: center;
 }
 
 #quote-grid{
@@ -113,23 +114,98 @@ p{
     cursor: pointer;
 }
 
-.signin-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.btn {
+    color: buttontext;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    margin: 0em 0em 0em 0em;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+.stack{
+    display:grid;
+    gap:14px
+}
+
+.form-card{
+    max-width:320px; margin-inline:auto
+}
+
+.signin-section form.stack p.signin-section {
+  width: min(250px, 92vw);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.stack input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font: inherit;
+  line-height: 1.2;
+  outline: none;
+}
+
+.btn.signin {
+  background-color: hsl(312, 68%, 46%);
+  color: hsl(0, 0%, 100%);
+  border-radius: 25px;
+  min-width: 150px;
+  font-size: 13px;
+}
+
+.table-card {
     padding: 30px;
+    max-width: 400px;
+    margin-inline:auto;
 }
 
-.signin-form form{
-    border-style: groove;
-    border-radius: 10px;
-    padding: 50px;
+.table-card{
+    max-width: 420px;
+    margin-inline: auto;
+    margin-top: 30px;
+    padding: 0;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    position: relative;
+    overflow: hidden;
 }
 
-.input-box{
-    border-bottom: 2px solid hsl(0, 0%, 0%);
-    margin: 30px 0;
-    height: 40px;
-    width: 100%;
+.bank-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 16px;
 }
 
+.bank-table thead th {
+  text-align: left;
+  padding: 14px 18px;
+  font-weight: 700;
+}
+
+.bank-table tbody {
+  padding: 14px 18px;
+}
+
+.bank-table td{
+  padding: 14px 16px;
+}
+
+.bank-table .num {
+  text-align: right;
+}
+
+.bank-table .bank-name{
+  font-weight: 600;
+}
