@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css"/>
+</head>
+<body>
+    <nav id="nav-bar">
+        <div class="logo">Trust Signature</div>
+        <div>
+            <ul class="links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="form-card">
+        <div class="signin-section">
+            <h1>Sign up</h1>
+            <form method="post" action="/signup" class="stack">
+                <label>
+                    <span>Full name</span>
+                    <input name="name" type="text" required/>
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input name="email" type="email" required/>
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input name="password" type="password" required/>
+                </label>
+                <label>
+                    <span>Confirm Password</span>
+                    <input name="confirm" type="password" required/>
+                </label>
+                <button class="signin btn" type="submit">Sign up</button>
+            </form>
+            <p>Already have an account? <a href="/signin">Sign in</a>.</p>
+        </div>
+    </section>
+</body>
+</html>
