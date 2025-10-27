@@ -11,8 +11,8 @@
         <div class="logo">Trust Signature</div>
         <div>
             <ul class="links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -23,6 +23,42 @@
             <a class="signin btn" href="/signin">Sign In</a>
             <p>Don't have an account?</p>
             <a class="creaccount btn" href="/signup">Create Account</a>
+        </div>
+    </section>
+    <div class="quote-desc">
+        <h2>See what other customers have to say</h2>
+        <p>Millions of people love Trust Signature</p>
+    </div>
+    <section id="quote-grid">
+
+        <div class="quote-box">
+            <p>"Trust signature is goated!"</p>
+            <h4><img src="../pfp.png" alt="pfp holder" style="width:30px;height:30px;"> John</h4>
+        </div>
+
+        <div class="quote-box">
+            <p>"Trust signature is goated!"</p>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> Emily</h4>
+        </div>
+
+        <div class="quote-box">
+            <p>"Trust signature is goated!"</p>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> AJ</h4>
+        </div>
+
+        <div class="quote-box">
+            <p>"Trust signature is goated!"</p>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> Heather</h4>
+        </div>
+
+        <div class="quote-box">
+            <p>"Trust signature is goated!"</p>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> Roger</h4>
+        </div>
+
+        <div class="quote-box">
+            <p>"Trust signature is goated!"</p>
+            <h4><img src="{{ url_for('static', filename = 'pfp.png')}}" alt="pfp holder" style="width:30px;height:30px;"> Julia</h4>
         </div>
     </section>
 </body>

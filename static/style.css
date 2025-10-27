@@ -87,6 +87,33 @@ p{
     text-align: center;
 }
 
+.quote-desc{
+    text-align: center;
+}
+
+#quote-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+    margin-top: 30px;
+    gap: 18px;
+    padding: 24px;
+}
+
+.quote-box{
+    padding: 10px;
+    border-style: groove;
+    border-radius: 5px;
+    max-width: 320px;
+    box-shadow: 3px 3px 5px hsl(0, 0%, 50%);
+}
+
+.quote-box:hover{
+    transform: translateY(-5px);
+    box-shadow: 6px 10px 10px hsl(0, 0%, 50%);
+    cursor: pointer;
+}
+
 .btn {
     color: buttontext;
     text-decoration: none;

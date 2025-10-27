@@ -39,6 +39,15 @@ def index():
         return redirect("/home")
     return render_template("index.html")
 
+@app.get("/about")
+def get_about():
+    return render_template("about.html")
+
+
+@app.get("/contact")
+def get_contact():
+    return render_template("contact.html")
+
 @app.get("/signin")
 def get_signin():
     return render_template("signin.html")
