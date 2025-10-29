@@ -62,8 +62,9 @@ p{
     background-color: hsl(312, 68%, 46%);
     color: hsl(0, 0%, 100%);
     border-radius: 25px;
-    min-width: 150px;
-    font-size: 13px;
+    min-width: 200px;
+    min-height: 50px;
+    font-size: 20px;
 }
 
 #welcome .creaccount{
@@ -71,8 +72,10 @@ p{
     background-color: hsl(0, 0%, 0%);
     color: hsl(0, 0%, 100%);
     border-radius: 25px;
-    min-width: 150px;
-    font-size: 13px;
+    align-content: center;
+    min-width: 200px;
+    font-size: 20px;
+    min-height: 50px;
 }
 
 #welcome .signin:hover{
@@ -85,10 +88,12 @@ p{
 
 .welcome-section{
     text-align: center;
+    font-size: x-large;
 }
 
 .quote-desc{
     text-align: center;
+    font-size: x-large;
 }
 
 #quote-grid{
@@ -113,8 +118,18 @@ p{
     box-shadow: 6px 10px 10px hsl(0, 0%, 50%);
     cursor: pointer;
 }
+#centered {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+
 
 .btn {
+    
     color: buttontext;
     text-decoration: none;
     display: inline-block;
@@ -125,10 +140,11 @@ p{
     margin: 0em 0em 0em 0em;
     padding-block: 1px;
     padding-inline: 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonborder;
-    border-image: initial;
+    border: 0;
+}
+
+.btn.signin:hover{
+    color: hsl(317, 55%, 31%);
 }
 
 .stack{
@@ -159,10 +175,17 @@ p{
 .btn.signin {
   background-color: hsl(312, 68%, 46%);
   color: hsl(0, 0%, 100%);
+  align-content: center;
   border-radius: 25px;
-  min-width: 150px;
-  font-size: 13px;
+  min-width: 200px;
+  min-height: 50px;
+  font-size: 20px;
 }
+
+.btn.signin:hover {
+    background-color: hsl(211, 59%, 40%);
+}
+
 
 .table-card {
     padding: 30px;
@@ -209,3 +232,29 @@ p{
 .bank-table .bank-name{
   font-weight: 600;
 }
+
+
+
+
+.previous {
+    position: absolute;
+    top: 150px;
+    left: 290px;
+    display: inline-block;
+    padding: 8px 20px;
+    text-decoration: none;
+    line-height: 1;
+    align-items: center;
+    background-color: #837c7c;
+    color: black;
+}
+
+.previous:hover{
+    background-color: #ddd;
+
+}
+
+.round {
+    border-radius: 50%;
+}
+
