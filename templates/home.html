@@ -8,15 +8,18 @@
 </head>
 <body>
     <nav id="nav-bar">
+        <a href="/about" class="previous round">&#8249;</a>
         <div class="logo">Trust Signature</div>
         <div>
-            <ul class="links">
+            
+            <ul class="links">    
                 <li><a href="/about">About</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
                 <li><a href="/logout">Log Out</a></li>
             </ul>
         </div>
     </nav>
+    
     <section class="form-card">
         <div class="signin-section">
             <h1>Add Bank Account</h1>
@@ -38,6 +41,7 @@
         </div>
     </section>
     <section class="table-card">
+        <h1> Bank - Acc. Num. - Route. Num</h1>
         <table class="table-div">
             <tbody class="bank-table">
                 {% for bank_account in bank_accounts %}
@@ -49,6 +53,12 @@
                 {% endfor %}
             </tbody>
         </table>
+    </section>
+    
+    <section id = "centered">
+        <div>
+            <a class="signin btn" href="/profile">Manage Profile</a>
+        </div>
     </section>
 </body>
 </html>

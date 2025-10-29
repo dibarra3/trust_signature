@@ -43,6 +43,10 @@ def index():
 def get_about():
     return render_template("about.html")
 
+@app.get("/profile")
+def get_profile():
+    return render_template("profile.html")
+
 
 @app.get("/contact")
 def get_contact():
