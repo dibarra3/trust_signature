@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css"/>
+</head>
+<body>
+    <nav id="nav-bar">
+        <a href="/home" class="previous round">&#8249;</a>
+        <div class="logo">Trust Signature</div>
+        <div>
+            
+            <ul class="links">    
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="page">
+        <h1 class="h1">New Signature</h1>
+        <form id = "signature-form" class ="stack" method="post" action = "/signature/save" enctype="multipart/form-data", style = "max-width: 500px;">
+            <div class = "signature-box">
+                <p>Upload image (PNG or JPEG)</p>
+                <input type="file" name="file" accept="image/*">
+            </div>
+            <label>
+                <span> Label your signature</span>
+                <input type = "text" name = "label" placeholder = "Business, personal Etc."> 
+            </label>
+
+            <div class = "toolbar">
+                <button type = "submit" class = "signin btn">Continue</a>
+            </div>
+        </form>
+
+        {% if signatures %}
+        <div class = "signature-row">
+            {% for s in signatures %}
+            <div class = "signature-stacked">
+                <img class  = "signature-pic" src = "data:image/png;base64,{{ s.image_base64}}" alt="signature">
+                <p>{{ s.label or s.id}}</p>
+            </div>
+            
+            
+            {% endfor %}
+        </div>
+        {% else %}
+            <p> No saved signatures</p>
+        {% endif %}
+
+
+
+    </section>
+
+</body>
+</html>
