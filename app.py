@@ -1,6 +1,6 @@
 import os
 import sqlite3
-
+import base64
 from flask import Flask, render_template, g, request, redirect, session
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -45,8 +45,15 @@ def get_about():
 
 @app.get("/profile")
 def get_profile():
-    return render_template("profile.html")
-
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    user = run_query("SELECT id, email, full_name, phone FROM users WHERE id = ?", (user_id,))
+    if user:
+        user = user[0]
+    else:
+        user = {}
+    return render_template("profile.html", user=user)
 
 @app.get("/contact")
 def get_contact():
@@ -59,6 +66,47 @@ def get_signin():
 @app.get("/signup")
 def get_signup():
     return render_template("signup.html")
+
+@app.get("/signature")
+def get_signature():
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    signatures = get_signatures(user_id)
+    return render_template("signature.html", signatures=signatures)
+
+
+def get_signatures(user_id):
+    return run_query("SELECT id, image_base64, label FROM signatures WHERE user_id = ? ORDER by id DESC", (user_id,))
+
+@app.post("/profile")
+def post_profile():
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    username = request.form.get("username","")
+    email = request.form.get("email","")
+    phone= request.form.get("phone","")
+    run_query("UPDATE users SET full_name=?, email=?, phone=? WHERE id=?", (username, email, phone,user_id), fetch=False)
+    return redirect("/profile")
+
+@app.post("/signature/save")
+def save_signature():
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    data_url = request.form.get("data_url")
+    file = request.files.get("file")
+    label = request.form.get("label") or "Custom"
+    image = None
+    if data_url and data_url[:11] == "data:image/":
+        image = data_url.split(",",1)[1]
+    elif file and file.filename:
+        image = base64.b64encode(file.read()).decode("utf-8")
+    else:
+        return redirect("/signature")
+    run_query("INSERT INTO signatures (user_id, image_base64,label) VALUES (?,?, ?)", (user_id, image,label), fetch=False)
+    return render_template("signature_preview.html", image_url = "data:/png;base64,"+image)
 
 @app.get("/home")
 def get_home():

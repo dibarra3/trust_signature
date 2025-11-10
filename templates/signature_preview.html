@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css"/>
+</head>
+<body>
+    <nav id="nav-bar">
+        <a href="/about" class="previous round">&#8249;</a>
+        <div class="logo">Trust Signature</div>
+        <div>
+            
+            <ul class="links">    
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class = "page">
+        <h1 class ="h1">
+            Preview and Confirm
+        </h1>
+        <div class = "signature-box" style= "max-width: 500px">
+            <img src = "{{ image_url }}" alt = "signature" style = "width:100%; height:auto;">
+        </div>
+        <div class = "toolbar">
+            <a class = "signin btn" href = "/signature">Redo</a>
+            <a class = "signin btn" href = "/signature">Confirm</a>
+        </div>
+    </section>
+</body>
+</html>

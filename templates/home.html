@@ -41,8 +41,15 @@
         </div>
     </section>
     <section class="table-card">
-        <h1> Bank - Acc. Num. - Route. Num</h1>
+        <h1> Bank Accounts</h1>
         <table class="table-div">
+            <thead>
+                <tr>
+                    <th>Bank</th>
+                    <th class ="num">Routing</th>
+                    <th class = "num">Account</th>
+                </tr>
+            </thead>
             <tbody class="bank-table">
                 {% for bank_account in bank_accounts %}
                     <tr>
@@ -56,8 +63,9 @@
     </section>
     
     <section id = "centered">
-        <div>
+        <div class = "stack" style ="text-align: center;">
             <a class="signin btn" href="/profile">Manage Profile</a>
+            <a class = "signin btn" href = "/signature">Manage Trust Signature</a>
         </div>
     </section>
 </body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css"/>
+</head>
+<body>
+    <nav id="nav-bar">
+        <a href="/home" class="previous round">&#8249;</a>
+        <div class="logo">Trust Signature</div>
+        <div>
+            
+            <ul class="links">    
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="page">
+        <h1 class="h1">Profile</h1>
+        <form method = "post" action = "/profile" class ="stack" style= "max-width:425px">
+            <label>
+                <span>Username</span>
+                <input name = "username" type = "text" value = "{{user.full_name or '' }}">
+            </label>
+            <label>
+                <span>Email</span>
+                <input name = "email" type ="email" value ="{{user.email or '' }}">
+            </label>
+            <label>
+                <span>Phone Number</span>
+                <input name = "phone" type = "text" value = "{{user.phone or '' }}">
+            </label>
+            <button class = "signin btn" type = "submit">Save</button>
+        </form>
+
+        <div class = "toolbar">
+            <a class = "btn signin" href="/signature">Manage Trust Signature</a>
+        </div>
+    </section>
+
+</body>
+</html>
