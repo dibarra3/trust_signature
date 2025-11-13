@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../static/style.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <nav id="nav-bar">
@@ -26,6 +27,10 @@
             <div class = "signature-box">
                 <p>Upload image (PNG or JPEG)</p>
                 <input type="file" name="file" accept="image/*">
+                <div class="progress" id="myProgressBar">
+                   <div class="progress-fill"></div>
+                   <div class="progress-text" data-stages="0:Initial Setup,25:Loading Asset,75:Uploading File,100:Done!"></div>
+                </div>
             </div>
             <label>
                 <span> Label your signature</span>
@@ -43,6 +48,10 @@
             <div class = "signature-stacked">
                 <img class  = "signature-pic" src = "data:image/png;base64,{{ s.image_base64}}" alt="signature">
                 <p>{{ s.label or s.id}}</p>
+                    <form method="post" action="/signature" class="delete-form">
+                       <input type="hidden" name="signature_id" value="{{ s.id }}">
+                       <button style="font-size:12px">Delete</button>
+                    </form>
             </div>
             
             
@@ -55,6 +64,7 @@
 
 
     </section>
+    <script src="../static/script.js"></script>
 
 </body>
 </html>
