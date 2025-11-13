@@ -22,3 +22,17 @@ CREATE TABLE IF NOT EXISTS signatures (
     label TEXT,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+CREATE TABLE IF NOT EXISTS payments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    signature_id INTEGER NOT NULL,
+    account_id INTEGER NOT NULL,
+    recipient TEXT NOT NULL,
+    amount REAL NOT NULL, 
+    status TEXT NOT NULL,
+    date TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (signature_id) REFERENCES signatures(signature_id)
+    FOREIGN KEY (account_id) REFERENCES bank_accounts(id)
+)

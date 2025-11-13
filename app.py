@@ -108,6 +108,80 @@ def save_signature():
     run_query("INSERT INTO signatures (user_id, image_base64,label) VALUES (?,?, ?)", (user_id, image,label), fetch=False)
     return render_template("signature_preview.html", image_url = "data:/png;base64,"+image)
 
+
+@app.get("/transfer")
+def get_transfer():
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    bank_accounts = run_query("SELECT * FROM bank_accounts WHERE user_id =?", (user_id,))
+    signatures = run_query("SELECT * FROM signatures WHERE user_id =?", (user_id,))
+    return render_template("transfer.html", bank_accounts=bank_accounts, signatures= signatures)
+
+@app.post("/transfer")
+def post_transfer():
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    acc_id = int(request.form.get("account_id"))
+    sign_id = int(request.form.get("signature_id"))
+    recipient = request.form.get("recipient")
+    amt = float(request.form.get("amount"))
+    date = request.form.get("date")
+    run_query("INSERT INTO PAYMENTS (user_id, account_id, signature_id, recipient, status,amount, date) VALUES (?,?,?,?,?,?,?)",(user_id,acc_id,sign_id,recipient,"CONFIRMED",amt,date),False)
+    payment_id = run_query("SELECT last_insert_rowid() AS last_row", fetch=True)[0]
+    payment_id = payment_id["last_row"]
+    return redirect(f"/transfer_preview/{payment_id}")
+
+
+@app.get("/transfer_preview/<int:payment_id>")
+def get_transfer_preview(payment_id):
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    payment_info = run_query("SELECT * FROM payments WHERE id=? AND user_id=?",(payment_id, user_id))
+    if not payment_info:
+        return redirect("/payment")
+    payment_info = payment_info[0]
+    signature_id = payment_info["signature_id"]
+    signature_info = run_query("SELECT * FROM signatures WHERE id=? AND user_id=?", (signature_id, user_id))
+    if not signature_info:
+        return redirect("/payments")
+    
+    signature = signature_info[0]
+    image_base64 = signature["image_base64"]
+    #print(signature["image_base64"])
+    return render_template("transfer_preview.html", payment = payment_info, image_url = "data:/png;base64,"+ image_base64)
+
+@app.get("/payments/<int:payment_id>")
+def get_payment_id(payment_id):
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    payment_info = run_query("SELECT * FROM payments WHERE id=? AND user_id=?",(payment_id, user_id))
+    if not payment_info:
+        return redirect("/payment")
+    payment_info = payment_info[0]
+    signature_id = payment_info["signature_id"]
+    signature_info = run_query("SELECT * FROM signatures WHERE id=? AND user_id=?", (signature_id, user_id))
+    if not signature_info:
+        return redirect("/payments")
+    
+    signature = signature_info[0]
+    image_base64 = signature["image_base64"]
+    #print(signature["image_base64"])
+    return render_template("view_transfer.html", payment = payment_info, image_url = "data:/png;base64,"+ image_base64)
+
+
+@app.get("/payments")
+def get_payments():
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    payments = run_query("SELECT * FROM payments WHERE user_id =? ORDER BY id DESC",(user_id,))
+    return render_template("transfers.html", payments=payments)
+
+
 @app.get("/home")
 def get_home():
     user_id = session.get("user_id")
@@ -160,8 +234,15 @@ def get_connect():
 def post_connect():
     user_id =  session.get("user_id")
     bank_name = request.form.get("bank_name")
-    routing_number= int(request.form.get("routing"))
-    account_number = int(request.form.get("account"))
+    try:
+        routing_number= int(request.form.get("routing"))
+    except:
+        routing_number = 1234567
+
+    try:
+        account_number = int(request.form.get("account"))
+    except:
+        account_number = 7654321
     run_query("INSERT INTO bank_accounts (user_id, bank_name, routing_number, account_number) VALUES (?, ?, ?, ?)",(user_id, bank_name, routing_number, account_number), False)
     return redirect("/home")
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css"/>
+</head>
+<body>
+    <nav id="nav-bar">
+        <a href="/transfer" class="previous round">&#8249;</a>
+        <div class="logo">Trust Signature</div>
+        <div>
+            
+            <ul class="links">    
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class = "table-card" style="max-width: 600px;">
+        <h1 style = "padding-left: 15px; padding-top: 10px; font-size: xx-large;">Transfers</h1>
+        <table class = "table-div">
+            <thead>
+                <tr>
+                    <th>Recipient</th>
+                    <th class = "num">Amount $</th>
+                    <th class = "date">Date</th>
+                    <th> View</th>
+                </tr>
+            </thead>
+            <tbody class="bank-table">
+                {% for payment in payments %}
+                    <tr>
+                        <td class="bank-name">{{ payment.recipient }}</td>
+                        <td class="num">{{ payment.amount }}</td>
+                        <td class="date">{{ payment.date }}</td>
+                        <td>
+                            <a class = "btn" href = "/payments/{{payment.id}}">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </section>
+    <section id = "centered">
+        <div class = "stack" style ="text-align: center;">
+            <a class="signin btn" href="/transfer">Make Payment</a>
+            <a class = "signin btn" href = "/signature">Manage Trust Signature</a>
+            <a class = "signin btn" href = "/home">Go Home</a>
+        </div>
+    </section>
+
+</body>
+</html>

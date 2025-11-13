@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css"/>
+</head>
+<body>
+    <nav id="nav-bar">
+        <a href="/home" class="previous round">&#8249;</a>
+        <div class="logo">Trust Signature</div>
+        <div>
+            
+            <ul class="links">    
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="form-card">
+        <div class="signin-section">
+            <h1>Initiate a Transfer</h1>
+            <form method = "post", action = "/transfer" class = "stack">
+                <label>
+                    <span>Recipient</span>
+                    <input name ="recipient" type="text" required>
+                </label>
+                <label>
+                    <span>Signature</span>
+                    <select name ="signature_id" required>
+                    <option disabled selected>Please Select a Signature</option>
+                    {% for signature in signatures %}
+                        <option value="{{signature.id}}"> {{signature.label }}</option>
+                    {% endfor %}
+                    </select>
+                    
+                </label>
+                <label>
+                    <span>Account</span>
+                    <select name = "account_id" required>
+                        <option disabled selected>Select Account</option>
+                        {% for bank_account in bank_accounts %}
+                            <option value = "{{bank_account.id}}"> {{bank_account.bank_name}} - {{bank_account.account_number}}</option>
+                        {% endfor %}
+                    </select>
+
+                </label>
+                <label>
+                    <span>Amount</span>
+                    <input name = "amount" type="number" required min="0.0" step="0.01">
+                </label>
+                <label>
+                    <span>Date</span>
+                    <input name="date" type="date" required>
+                </label>
+
+                <button class = "signin btn" type = "submit">Next</button>
+
+            </form>
+            
+        
+        </div>
+    </section>
+
+    <section id = "centered">
+        <div class = "stack" style ="text-align: center;">
+            <a class="signin btn" href="/payments">All Payments</a>
+        </div>
+    </section>
+    </body>
+</html>
