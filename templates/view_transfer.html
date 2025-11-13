@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css"/>
+</head>
+<body>
+    <nav id="nav-bar">
+        <a href="/transfers" class="previous round">&#8249;</a>
+        <div class="logo">Trust Signature</div>
+        <div>
+            
+            <ul class="links">    
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class = "table-card" style = "text-align: center; padding:10px">
+        <h1 style = "padding-bottom: 20px; font-size: xx-large;">Payment</h1>
+        <div style = "padding-bottom: 15px;">
+        <label>
+            <span><strong>Recipient: </strong></span>
+            <span> {{payment.recipient}}</span>
+        </label>
+        </div>
+        <div style = "padding-bottom: 15px;">
+        <label>
+            <span><strong>Amount: </strong></span>
+            <span> {{payment.amount}}</span>
+        </label>
+        </div>
+
+        <div style = "padding-bottom: 15px;">
+        <label>
+            <span><strong>Date: </strong></span>
+            <span> {{payment.date}}</span>
+        </label>
+        </div>
+        <div style = "padding-bottom: 15px;">
+        <label>
+            <span><strong>Status: </strong></span>
+            <span> {{payment.status}}</span>
+        </label>
+        </div>
+        <label>
+            <img src = "{{image_url}}" alt = "signature" style = "width:auto; max-height:100px;">
+        </label>
+        <p style = "padding-bottom: 15px;">Stamped With your Trust Signature</p>
+        <label>
+            <a class = "signin btn" href = "/payments">All payments</a>
+        </label>
+    </section>
+</body>
+</html> 
