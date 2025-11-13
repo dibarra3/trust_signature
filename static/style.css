@@ -332,3 +332,23 @@ p{
   font-style: italic;
   font-family: sans-serif;
 }
+#initiate{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.initiate-section{
+    text-align: center;
+    font-size: x-large;
+}
+
+#initiate .download:hover{
+    background-color: hsl(315, 2%, 38%);
+}
+
+#initiate .done:hover{
+    background-color: hsl(315, 2%, 38%);
+}
