@@ -180,6 +180,7 @@ p{
   min-width: 200px;
   min-height: 50px;
   font-size: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
 }
 
 .btn.signin:hover {
@@ -199,7 +200,7 @@ p{
     margin-top: 30px;
     padding: 0;
     border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    box-shadow: 0 8px 24px rgba(0,0,0,.5);
     position: relative;
     overflow: hidden;
 }
@@ -309,4 +310,25 @@ p{
     width: auto;
     border: 1px solid #837c7c;
     border-radius: 8px;
+}
+
+.progress {
+  width: 500px;
+}
+
+.progress-fill {
+  height: 5px;
+  width: 0%;
+  border-radius: 5px;
+  background: #009578;
+  transition: width 0.5s;
+}
+
+.progress-text {
+  padding: 10px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  font-style: italic;
+  font-family: sans-serif;
 }
