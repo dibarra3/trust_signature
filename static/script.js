@@ -5,25 +5,26 @@ function updateProgressBar(progressBar, value) {
     .split(",")
     .map((stage) => stage.split(":"));
 
-  stages.sort((stageA, stageB) => stageB[0] - stageA[0]);
+  stages.sort((stageA, stageB) => Number(stageB[0]) - Number(stageA[0]));
 
-  const activeStage = stages.find((stage) => value >= stage[0]) || stages[stages.length - 1];
+  const activeStage =
+    stages.find((stage) => value >= Number(stage[0])) ||
+    stages[stages.length - 1];
 
   progressFill.style.width = `${value}%`;
   progressText.textContent = `${activeStage[1]}...`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const fileInput = document.querySelector('input[name="file"]');
   const progressBar = document.getElementById("myProgressBar");
-
-  if (!fileInput || !progressBar) return;
+  if (!progressBar) return;
 
   progressBar.style.display = "none";
 
-  fileInput.addEventListener("change", () => {
-    if (!fileInput.files || fileInput.files.length === 0) return;
+  const fileInput = document.querySelector('input[name="file"]'); 
+  const downloadBtn = document.querySelector(".download");        
 
+  function startProgress() {
     progressBar.style.display = "block";
 
     let value = 0;
@@ -37,5 +38,21 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(interval);
       }
     }, 100);
-  });
+  }
+
+  if (fileInput) {
+    fileInput.addEventListener("change", () => {
+      if (!fileInput.files || fileInput.files.length === 0) return;
+      startProgress();
+    });
+  }
+
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      startProgress();
+    });
+  }
 });
+
+

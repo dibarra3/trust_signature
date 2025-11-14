@@ -67,6 +67,10 @@ def get_signin():
 def get_signup():
     return render_template("signup.html")
 
+@app.get("/download")
+def get_download():
+    return render_template("download.html")
+
 @app.get("/signature")
 def get_signature():
     user_id = session.get("user_id")
