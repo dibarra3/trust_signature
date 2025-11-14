@@ -91,6 +91,51 @@ p{
     font-size: x-large;
 }
 
+#initiate{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.initiate-section{
+    text-align: center;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+#initiate .download{
+    font-style: 25px;
+    background-color: hsl(118, 74%, 42%);
+    color: hsl(0, 0%, 100%);
+    border-radius: 25px;
+    min-width: 200px;
+    min-height: 50px;
+    font-size: 20px;
+}
+
+#initiate .done{
+    font-style: 25px;
+    background-color: hsl(120, 2%, 81%);
+    color: hsl(0, 0%, 100%);
+    border-radius: 25px;
+    min-width: 200px;
+    min-height: 50px;
+    font-size: 20px;
+}
+
+#initiate .download:hover{
+    background-color: hsl(138, 57%, 20%);
+}
+
+#initiate .done:hover{
+    background-color: hsl(315, 2%, 38%);
+}
+
 .quote-desc{
     text-align: center;
     font-size: x-large;
