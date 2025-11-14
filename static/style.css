@@ -236,7 +236,7 @@ p{
 
 
 .table-card{
-    max-width: 700px;
+    max-width: 650px;
     margin-inline: auto;
     margin-top: 30px;
     padding: 30;
@@ -275,6 +275,10 @@ p{
 
 .bank-table .bank-name{
   font-weight: 600;
+}
+
+.table-card .title{
+    text-align: center;
 }
 
 
