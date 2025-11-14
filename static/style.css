@@ -23,7 +23,8 @@ p{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 17vh;
+    background-color: hsl(312, 68%, 46%);;
+    height: 14vh;
 }
 
 #nav-bar .links{
@@ -34,15 +35,16 @@ p{
 }
 
 #nav-bar .links a{
-    color: hsl(0, 0%, 40%);
+    color: hsl(0, 0%, 100%);
 }
 
 #nav-bar .links a:hover{
-    color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 80%);
 }
 
 .logo{
     font-size:2rem;
+    color: hsl(0, 0%, 100%);
 }
 
 .logo:hover {
