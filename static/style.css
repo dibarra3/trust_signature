@@ -235,17 +235,11 @@ p{
 }
 
 
-.table-card {
-    padding: 30px;
-    max-width: 400px;
-    margin-inline:auto;
-}
-
 .table-card{
-    max-width: 420px;
+    max-width: 700px;
     margin-inline: auto;
     margin-top: 30px;
-    padding: 0;
+    padding: 30;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0,0,0,.5);
     position: relative;
@@ -260,7 +254,7 @@ p{
 }
 
 .bank-table thead th {
-  text-align: left;
+  text-align: center;
   padding: 14px 18px;
   font-weight: 700;
 }
@@ -272,10 +266,11 @@ p{
 
 .bank-table td{
   padding: 14px 50px;
+  text-align: center;
 }
 
 .bank-table .num {
-  text-align: right;
+  text-align: center;
 }
 
 .bank-table .bank-name{
