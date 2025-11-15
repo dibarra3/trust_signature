@@ -401,45 +401,103 @@ p{
     background-color: hsl(315, 2%, 38%);
 }
 
-.contact-page{
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
+.about-container {
+    width: min(1000px, 90vw);
+    margin: 2rem auto 4rem auto; 
+    padding: 0 1.5rem 3rem;
+    font-family: 'Poppins', 'sans-serif';
 }
 
-.contact-card {
-    max-width: 480px;
+.about-topbar {
     width: 100%;
-    background-color: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    height: 90px; 
+    background-color: hsl(312, 68%, 46%); 
+}
+
+.about-title {
+    font-size: 3rem;
+    font-weight: 700;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0.5rem;
 }
 
-.contact-card h1 {
-    font-size: 32px;
-    margin-bottom: 12px;
-    color: hsl(0, 0%, 20%);
-    font-weight: 600;
-}
-
-.contact-card p {
+.about-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
     color: hsl(0, 0%, 40%);
-    font-size: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 2.5rem;
 }
 
-.contact-card h3 {
-    margin-top: 24px;
-    margin-bottom: 6px;
-    color: hsl(0, 0%, 20%);
+.about-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.8rem;
+    border: 1px solid hsl(0, 0%, 90%);
+    box-shadow: 3px 3px 5px hsl(0, 0%, 50%);
 }
 
-.contact-card .contact-detail {
+.about-card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.about-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: hsl(0, 0%, 25%);
+    margin-bottom: 0.75rem;
+}
+
+.about-card ul,
+.about-card ol {
+    margin-top: 0.5rem;
+    padding-left: 1.4rem;
+}
+
+.about-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    color: hsl(0, 0%, 25%);
+}
+
+.about-card ol {
+    list-style-position: outside;
+}
+
+.about-card ol li::marker {
+    font-weight: 700;
     color: hsl(312, 68%, 46%);
-    font-weight: 500;
 }
+
+.about-card h2 {
+    position: relative;
+}
+
+.about-card h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 48px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        hsl(312, 68%, 60%),
+        hsl(312, 68%, 46%)
+    );
+}
+
+.previous.round {
+    top: 150px;   
+    left: 60px;
+    padding: 8px 12px;
+    background-color: #837c7c;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 3px 3px 6px hsl(0, 0%, 50%);
+}
+
