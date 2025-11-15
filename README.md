@@ -28,25 +28,25 @@ or
    http://127.0.0.1:5000
 
 ### UI Work Flow
-**1. Sign In / Registration**
+#### 1. Sign In / Registration
    * Users create an account or log in from main entry page
    * Password are hashed for security
    * On successful login, users are redirected to home / dashboard page
 
-**2. Home / Dashboard**
+#### 2. Home / Dashboard
    * Displays a welcome message and navigation options
    * View account information
    * Bank link page navigation
    * Manage digital signature and payments
 
-**3. Link Bank Account (Simple Task)**
+#### 3. Link Bank Account (Simple Task)
    * User enters bank name, account number, routing number
    * Form allows user to add bank account details
    * After submitting, the data is stored in SQLite with success confirmation message
    * Connection between UI, backend, and database
    * User is shown their updated list of connected bank acccounts
 
-**4. Manage Digital Signature (Medium Task)**
+#### 4. Manage Digital Signature (Medium Task)
 
    Step 1 - Update Profile
    * User navigates to Manange Profile
@@ -65,7 +65,7 @@ or
    * After choosing a signature, the system shows a simulated encryption process
    * User is shown confirmation screen
    
-**5. Make a Verified Payment (Hard Task)**
+#### 5. Make a Verified Payment (Hard Task)
 
    Step 1 - Create Payment
    * User enters recipient information, amount, adds signature and confrims
