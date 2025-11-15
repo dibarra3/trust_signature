@@ -32,24 +32,56 @@ or
    * Users create an account or log in from main entry page
    * Password are hashed for security
    * On successful login, users are redirected to home / dashboard page
+
 2. Home / Dashboard
    * Displays a welcome message and navigation options
    * View account information
    * Bank link page navigation
    * Manage digital signature and payments
+
 3. Link Bank Account (Simple Task)
-   * Users can open the **Connect Bank** or similar page
+   * User enters bank name, account number, routing number
    * Form allows user to add bank account details
    * After submitting, the data is stored in SQLite with success confirmation message
    * Connection between UI, backend, and database
+   * User is shown their updated list of connected bank acccounts
+
 4. Manage Digital Signature (Medium Task)
-   * Users will access a **Manage Trust Signature** option from profile
-   * They will be able to create or upload a digital signature
-   * The system will store this in a secure format and display verfication message
+
+   Step 1 - Update Profile
+   * User navigates to Manange Profile
+   * They update fields such as name, email, or other basic info
+   * Changes are submitted and saved using SQLite
+
+   Step 2 - Manage Signature
+   * Users click Manage Trust Signature, entering the signature setup page
+
+   Step 3 - Add Signature
+   Users can:
+   * Draw a signature
+   * Upload a signature image
+
+   Step 4 - Encryption & Verfication
+   * After choosing a signature, the system shows a simulated encryption process
+   * User is shown confirmation screen
+   
 5. Make a Verified Payment (Hard Task)
-   * Users will be able to select a recipient, enter an amount, and confirm payment
-   * The system will show verfication flow and a final confirmation message
-   * A receipt page will display details and allow user to download or view a *verified* transaction record
+
+   Step 1 - Create Payment
+   * User enters recipient information, amount, adds signature and confrims
+
+   Step 2 - Save Payment
+   * Information is stored in SQLite database
+   * A confirmation messages appears after saving
+
+   Step 3 - View All Payments
+   * User navigates to All Payments
+   * A table or list show all their past transactions
+
+   Step 4 - Download Receipt
+   * User clicks on a payment entry
+   * A receipt page opens showing amount, timestamp, and status.
+   * User clicks Download to save it as a PDF (if implemented) or view only HTML
 
 ### Browser / Device Settings
 * Optimized for desktop browsers
