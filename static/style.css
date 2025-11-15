@@ -23,7 +23,8 @@ p{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 17vh;
+    background-color: hsl(312, 68%, 46%);;
+    height: 14vh;
 }
 
 #nav-bar .links{
@@ -34,15 +35,16 @@ p{
 }
 
 #nav-bar .links a{
-    color: hsl(0, 0%, 40%);
+    color: hsl(0, 0%, 100%);
 }
 
 #nav-bar .links a:hover{
-    color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 80%);
 }
 
 .logo{
     font-size:2rem;
+    color: hsl(0, 0%, 100%);
 }
 
 .logo:hover {
@@ -111,6 +113,8 @@ p{
 #initiate .download{
     font-style: 25px;
     background-color: hsl(118, 74%, 42%);
+    align-content: center;
+    align-items: center;
     color: hsl(0, 0%, 100%);
     border-radius: 25px;
     min-width: 200px;
@@ -233,17 +237,11 @@ p{
 }
 
 
-.table-card {
-    padding: 30px;
-    max-width: 400px;
-    margin-inline:auto;
-}
-
 .table-card{
-    max-width: 420px;
+    max-width: 650px;
     margin-inline: auto;
     margin-top: 30px;
-    padding: 0;
+    padding: 30;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0,0,0,.5);
     position: relative;
@@ -258,7 +256,7 @@ p{
 }
 
 .bank-table thead th {
-  text-align: left;
+  text-align: center;
   padding: 14px 18px;
   font-weight: 700;
 }
@@ -270,14 +268,19 @@ p{
 
 .bank-table td{
   padding: 14px 50px;
+  text-align: center;
 }
 
 .bank-table .num {
-  text-align: right;
+  text-align: center;
 }
 
 .bank-table .bank-name{
   font-weight: 600;
+}
+
+.table-card .title{
+    text-align: center;
 }
 
 
