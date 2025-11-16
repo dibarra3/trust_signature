@@ -27,6 +27,14 @@ or
 2. Open the UI in your browser
    http://127.0.0.1:5000
 
+Sample Username and Password:
+Email: test@test.com
+Password: password
+
+Note that you can also create your own account if you would like, each payment and signature that you add will stay attached to your account.
+
+
+
 ### UI Work Flow
 #### 1. Sign In / Registration
    * Users create an account or log in from main entry page
@@ -58,7 +66,7 @@ or
 
    Step 3 - Add Signature
    Users can:
-   * Draw a signature
+   * Draw a signature (simulated)
    * Upload a signature image
 
    Step 4 - Encryption & Verfication
