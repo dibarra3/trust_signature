@@ -17,7 +17,8 @@ To run the UI locally, you must:
 1. Clone the repository
 2. (If installed) Create and activate virtual environment
 3. Install Python dependencies
-4. (If needed) Initialize the database
+   run ```pip install -r requirements.txt```
+4. Run app.py using ```python app.py``` 
 
 ### Running the Application
 Website - www.trustsignature.app
@@ -28,8 +29,8 @@ or
    http://127.0.0.1:5000
 
 Sample Username and Password:
-Email: test@test.com
-Password: password
+1. Email: test@test.com
+2. Password: password
 
 Note that you can also create your own account if you would like, each payment and signature that you add will stay attached to your account.
 
