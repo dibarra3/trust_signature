@@ -20,6 +20,9 @@ To run the UI locally, you must:
    run ```pip install -r requirements.txt```
 4. Run app.py using ```python app.py``` 
 
+### YouTube Walkthrough:
+Link: https://www.youtube.com/watch?v=MroQUOuldTI
+
 ### Running the Application
 Website - www.trustsignature.app
 or 
