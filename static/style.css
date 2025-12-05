@@ -183,7 +183,7 @@ p{
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    cursor: default;
+    cursor: pointer;
     box-sizing: border-box;
     background-color: buttonface;
     margin: 0em 0em 0em 0em;
@@ -542,4 +542,40 @@ p{
 .contact-card .contact-detail {
     color: hsl(312, 68%, 46%);
     font-weight: 500;
+}
+
+.upload-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+input[type="file"]::file-selector-button {
+     background-color: hsl(0, 0%, 94%);
+     color: hsl(0, 0%, 0%);
+     border: 1px solid hsl(0, 0%, 70%);
+     border-radius: 4px;
+     padding: 6px 12px;
+     font-size: 14px;
+     cursor: pointer;
+ }
+
+ input[type="file"]:hover::file-selector-button {
+    background-color: hsl(0, 0%, 91%);
+    border-color: hsl(0, 0%, 60%);
+ }
+
+#sig-btn {
+    background-color: hsl(0, 0%, 94%);
+    color: hsl(0, 0%, 0%);
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#sig-btn:hover {
+    background-color: hsl(0, 0%, 89%);
+    border-color: hsl(0, 0%, 60%);
 }

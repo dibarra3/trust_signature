@@ -26,11 +26,20 @@
         <form id = "signature-form" class ="stack" method="post" action = "/signature/save" enctype="multipart/form-data", style = "max-width: 500px;">
             <div class = "signature-box">
                 <p>Upload image (PNG or JPEG)</p>
-                <input type="file" name="file" accept="image/*">
+                
+                <div class = "upload-row">
+                <input type="file" id="file" name="file" accept="image/*">
+                <button type="button" id="sig-btn" class="btn" style="display:none;">
+                    Remove
+                </button>
+                </div>
+
                 <div class="progress" id="myProgressBar">
                    <div class="progress-fill"></div>
                    <div class="progress-text" data-stages="0:Initial Setup,25:Loading Asset,75:Uploading File,100:Done!"></div>
                 </div>
+
+                <div class="stat" id="status"></div>
             </div>
             <label>
                 <span> Label your signature</span>
@@ -38,7 +47,7 @@
             </label>
 
             <div class = "toolbar">
-                <button type = "submit" class = "signin btn">Continue</a>
+                <button type = "submit" class = "signin btn">Continue</button>
             </div>
         </form>
 
