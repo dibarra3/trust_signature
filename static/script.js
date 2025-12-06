@@ -15,7 +15,49 @@ function updateProgressBar(progressBar, value) {
   progressText.textContent = `${activeStage[1]}...`;
 }
 
+function signatureDelele(fileInput, deletebtn) {
+  fileInput.addEventListener("change", () => {
+    if (fileInput.files && fileInput.files.length > 0) {
+      deletebtn.style.display = "inline-block";
+    } else {
+      deletebtn.style.display = "none";
+    }
+  });
+
+  deletebtn.addEventListener("click", () => {
+    fileInput.value = "";
+    deletebtn.style.display = "none";
+
+    const status = document.getElementById("status");
+    const progress = document.getElementById("myProgressBar");
+
+    if (status) {
+      status.textContent = "";
+    }
+
+    if (progress) {
+      const fill = progress.querySelector(".progress-fill");
+      const text = progress.querySelector("progress-text");
+      if (fill) {
+        fill.style.width = "0%";
+      }
+      if (text) {
+        text.textContent = "";
+      }
+
+      progress.style.display = "none";
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  const sigFileInput = document.getElementById("file");
+  const sigDeleteBtn = document.getElementById("sig-btn");
+
+  if (sigFileInput && sigDeleteBtn) {
+    signatureDelele(sigFileInput, sigDeleteBtn);
+  }
+
   const progressBar = document.getElementById("myProgressBar");
   if (!progressBar) return;
 
