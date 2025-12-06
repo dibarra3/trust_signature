@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css"/>
+</head>
+<body>
+    <nav id="nav-bar">
+        <div class="logo">Trust Signature</div>
+        <div>
+            
+            <ul class="links">    
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <a href="/transfer" class="back-btn">&#8249; Back</a>
+    <section class = "table-card" style = "text-align: center; padding:10px; max-width: 650px;">
+        <h1 style = "padding-bottom: 20px; font-size: xx-large;">Confirm Payment</h1>
+        <div style = "padding-bottom: 15px;">
+        <label>
+            <span><strong>Recipient: </strong></span>
+            <span> {{recipient}}</span>
+        </label>
+        </div>
+        <div style = "padding-bottom: 15px;">
+        <label>
+            <span><strong>Amount: </strong></span>
+            <span> {{amount}}</span>
+        </label>
+        </div>
+
+        <div style = "padding-bottom: 15px;">
+        <label>
+            <span><strong>Date:</strong></span>
+            <span> {{date}}</span>
+        </label>
+        </div>
+        
+        {% if user_Accounts %}
+        <div style="padding-bottom: 15px;">
+            <label>
+                <span><strong>Account:</strong></span>
+                <span>{{ user_Accounts.bank_name }} – {{ user_Accounts.account_number }}</span>
+            </label>
+        </div>
+        {% endif %}
+        
+
+        {% if user_Signatures %}
+        <span><strong>Signature:</strong></span>
+        <div style="padding-bottom: 15px;">
+            <label>
+                <img src="{{image_url}}" alt="signature" style="width:auto; max-height:100px;">
+            </label>
+        </div>
+        {% endif %}
+
+    <form method="post" action="/transfer/confirm" style="margin-top: 25px;">
+        <input type="hidden" name="recipient" value="{{ recipient }}">
+        <input type="hidden" name="amount" value="{{ amount }}">
+        <input type="hidden" name="date" value="{{ date }}">
+        <input type="hidden" name="account_id" value="{{ account_id }}">
+        <input type="hidden" name="signature_id" value="{{ signature_id }}">
+    
+        <button type="submit" class="signin btn">Confirm Payment</button>
+    </form>
+
+    
+    <div style="margin-top: 16px; display:flex; gap:12px; justify-content:center;">
+        <a href="/transfer" class="signin btn" style="min-width: 160px;">Back &amp; Edit</a>
+        <a href="/home" class="signin btn" style="min-width: 160px;">Cancel</a>
+    </div>
+    </section>
+
+
+</body>
+</html> 
