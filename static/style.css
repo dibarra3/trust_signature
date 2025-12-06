@@ -175,6 +175,28 @@ p{
     padding: 30px;
 }
 
+.back-btn{
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    display: inline-block;
+    background: hsl(312, 68%, 46%);
+    color: white;
+    padding: 14px 28px;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-radius: 999px;
+}
+
+.back-btn:hover{
+    background: hsl(312, 50%, 38%);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+
 
 
 .btn {
@@ -202,8 +224,32 @@ p{
 }
 
 .form-card{
-    max-width:320px; margin-inline:auto
+    max-width:320px; 
+    margin: 30px 0;
+    text-align: left;
 }
+
+.form-card-center{
+    margin: 40px auto;
+}
+
+.home-layout{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 30px 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.home-account-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 600px;
+}
+
 
 .signin-section form.stack p.signin-section {
   width: min(250px, 92vw);
@@ -221,6 +267,50 @@ p{
   outline: none;
 }
 
+.selection-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.selection-option{
+    position: relative;
+    cursor: pointer;
+
+}
+
+.selection-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.selection-option span{
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 2px solid hsl(312, 68%, 46%);
+    font-size: 14px;
+    min-width: 140px;
+    text-align: center;
+}
+
+.selection-option:hover span{
+    border-color: hsl(0, 0%, 0%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.selection-option input:checked+span{
+    background: hsl(312, 68%, 46%);
+    border-color: hsl(312, 68%, 46%);
+    color: #ffffff;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+
+
 .btn.signin {
   background-color: hsl(312, 68%, 46%);
   color: hsl(0, 0%, 100%);
@@ -236,23 +326,85 @@ p{
     background-color: hsl(211, 59%, 40%);
 }
 
+.empty-warning{
+    margin-top:10px;
+    padding: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.create-signature{
+    display: inline-block;
+    padding: 10px;
+    border-radius: 999px;
+    background-color: hsl(312, 68%, 46%);
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+    font-weight: 600;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.create-signature:hover{
+    background: hsl(312, 50%, 38%);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+
+.transfer-card{
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.transfer-grid{
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-top: 16px
+}
+
+.transfer-grid input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font: inherit;
+  line-height: 1.2;
+  outline: none;
+}
+
+.transfer-col{
+    flex: 1;
+    display: grid;
+    gap:14px
+}
+
+
 
 .table-card{
-    max-width: 650px;
+    min-height: 200px;
+    width: 100%;
     margin-inline: auto;
     margin-top: 30px;
-    padding: 30;
+    padding: 30px;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0,0,0,.5);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .bank-table {
   width: 100%;
+  max-width: 800px;
   border-collapse: separate;
   border-spacing: 0;
   font-size: 16px;
+  table-layout: fixed;
 }
 
 .bank-table thead th {
@@ -263,26 +415,40 @@ p{
 
 .bank-table tbody {
   padding: 14px 18px;
-  background: #837c7c;
 }
 
 .bank-table td{
-  padding: 14px 50px;
+  padding: 14px 20px;
   text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .bank-table .num {
   text-align: center;
+  max-width: 500px;
 }
 
 .bank-table .bank-name{
   font-weight: 600;
+  max-width: none;
+  white-space: nowrap;
+  text-align: left;
 }
 
 .table-card .title{
     text-align: center;
 }
 
+.placeholder-row{
+    height:120px;
+}
+
+.placeholder-data{
+    text-align: center;
+    font-size: 16px;
+    padding: 60px 16px;
+}
 
 
 

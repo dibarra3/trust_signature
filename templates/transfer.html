@@ -8,7 +8,6 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <a href="/home" class="previous round">&#8249;</a>
         <div class="logo">Trust Signature</div>
         <div>
             
@@ -19,35 +18,58 @@
             </ul>
         </div>
     </nav>
+    <a href="/home" class="back-btn">&#8249; Back</a>
     
-    <section class="form-card">
+    <section class="transfer-card">
         <div class="signin-section">
             <h1>Initiate a Transfer</h1>
-            <form method = "post", action = "/transfer" class = "stack">
+            <form method = "post", action = "/transfer" class = "transfer-grid">
+            <div class = "transfer-col">
                 <label>
                     <span>Recipient</span>
                     <input name ="recipient" type="text" required>
                 </label>
                 <label>
                     <span>Signature</span>
-                    <select name ="signature_id" required>
-                    <option disabled selected>Please Select a Signature</option>
-                    {% for signature in signatures %}
-                        <option value="{{signature.id}}"> {{signature.label }}</option>
-                    {% endfor %}
-                    </select>
+                    {% if signatures|length == 0 %}
+                        <div class="empty-warning">
+                            <p>You dont have any signatures yet! Go create one</p>
+                            <a class = "create-signature" href = "/signature">Create a Trust Signature</a>  
+                        </div>
+                    {%else %}
+                        <div class = "selection-group" role = "radiogroup">
+                            {% for signature in signatures %}
+                                <label class = "selection-option">
+                                    <input type = "radio" name = "signature_id" value = {{signature.id}} required>
+                                    <span>{{signature.label }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>  
+                    {% endif %}
                     
+                
                 </label>
                 <label>
                     <span>Account</span>
-                    <select name = "account_id" required>
-                        <option disabled selected>Select Account</option>
-                        {% for bank_account in bank_accounts %}
-                            <option value = "{{bank_account.id}}"> {{bank_account.bank_name}} - {{bank_account.account_number}}</option>
-                        {% endfor %}
-                    </select>
-
+                    {% if bank_accounts|length == 0%}
+                        <div class="empty-warning">
+                            <p>You dont have any Accounts Linked yet! Go Link one</p>
+                            <a class = "create-signature" href = "/home">Link a Bank Account</a>  
+                        </div>
+                    {%else %}
+                        <div class = "selection-group" role = "radiogroup">
+                            {% for bank_account in bank_accounts %}
+                                <label class = "selection-option">
+                                    <input type="radio" name = "account_id" value = {{bank_account.id}} required>
+                                    <span>{{bank_account.bank_name}} - {{bank_account.account_number}}</span>
+                                </label>
+                            {% endfor %}
+                        
+                        </div>
+                    {%endif %}
                 </label>
+            </div>
+            <div class = "transfer-col">
                 <label>
                     <span>Amount</span>
                     <input name = "amount" type="number" required min="0.0" step="0.01">
@@ -62,6 +84,7 @@
             </form>
             
         
+        </div>
         </div>
     </section>
 

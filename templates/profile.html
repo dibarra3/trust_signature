@@ -8,7 +8,6 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <a href="/home" class="previous round">&#8249;</a>
         <div class="logo">Trust Signature</div>
         <div>
             
@@ -19,11 +18,14 @@
             </ul>
         </div>
     </nav>
+    <a href="/home" class="back-btn">&#8249; Back</a>
+    
+    <div class = "home-layout">
     <section class="page">
         <h1 class="h1">Profile</h1>
         <form method = "post" action = "/profile" class ="stack" style= "max-width:425px">
             <label>
-                <span>Username</span>
+                <span>Full Name</span>
                 <input name = "username" type = "text" value = "{{user.full_name or '' }}">
             </label>
             <label>
@@ -41,6 +43,31 @@
             <a class = "btn signin" href="/signature">Manage Trust Signature</a>
         </div>
     </section>
-
+    <div class = "home-account-buttons">
+    <section class="table-card">
+        <h1 class="title">Profile Information</h1>
+        <table class="bank-table" style = "max-width: 900px;">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th class ="num">Email</th>
+                    <th class = "num">Phone Number</th>
+                </tr>
+            </thead>
+            <tbody class="bank-table">
+                
+                    <tr>
+                        <td class = "bank-name">{{user.full_name or ''}}</td>
+                        <td class = "bank-name">{{user.email or ''}}</td>
+                        <td class = "bank-name">{{user.phone or '' }}</td>
+                    </tr>
+                    
+                
+            </tbody>
+        </table>
+    </section>
+    </div>
+    
+    </div>
 </body>
 </html>

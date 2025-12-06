@@ -18,7 +18,7 @@
             </ul>
         </div>
     </nav>
-    
+    <div class = "home-layout">
     <section class="form-card">
         <div class="signin-section">
             <h1>Add Bank Account</h1>
@@ -39,9 +39,10 @@
             </form>
         </div>
     </section>
+    <div class = "home-account-buttons">
     <section class="table-card">
         <h1 class="title">Bank Accounts</h1>
-        <table class="table-div">
+        <table class="bank-table">
             <thead>
                 <tr>
                     <th>Bank</th>
@@ -50,13 +51,22 @@
                 </tr>
             </thead>
             <tbody class="bank-table">
-                {% for bank_account in bank_accounts %}
-                    <tr>
-                        <td class="bank-name">{{ bank_account.bank_name }}</td>
-                        <td class="num">{{ bank_account.routing_number }}</td>
-                        <td class="num">{{ bank_account.account_number }}</td>
+                {% if bank_accounts|length == 0%}
+                    <tr class ="placeholder-row">
+                        <td colspan="3" class = "placeholder-data">
+                            Nothing Added Yet.
+                        </td>
                     </tr>
-                {% endfor %}
+                {%else %}
+
+                    {% for bank_account in bank_accounts %}
+                        <tr>
+                            <td class="bank-name">{{ bank_account.bank_name }}</td>
+                            <td class="num">{{ bank_account.routing_number }}</td>
+                            <td class="num">{{ bank_account.account_number }}</td>
+                        </tr>
+                    {% endfor %}
+                {%endif %}
             </tbody>
         </table>
     </section>
@@ -68,5 +78,7 @@
             <a class = "signin btn" href = "/transfer">Send a Payment</a>
         </div>
     </section>
+    </div>
+    </div>
 </body>
 </html>
