@@ -27,17 +27,12 @@ function signatureDelele(fileInput, deletebtn) {
   deletebtn.addEventListener("click", () => {
     fileInput.value = "";
     deletebtn.style.display = "none";
-
-    const status = document.getElementById("status");
+    
     const progress = document.getElementById("myProgressBar");
-
-    if (status) {
-      status.textContent = "";
-    }
 
     if (progress) {
       const fill = progress.querySelector(".progress-fill");
-      const text = progress.querySelector("progress-text");
+      const text = progress.querySelector(".progress-text");
       if (fill) {
         fill.style.width = "0%";
       }

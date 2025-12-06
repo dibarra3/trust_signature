@@ -127,12 +127,61 @@ def post_transfer():
     user_id = session.get("user_id")
     if not user_id:
         return redirect("/signin")
+    acc_id = (request.form.get("account_id"))
+    sign_id = (request.form.get("signature_id"))
+    recipient = request.form.get("recipient")
+    amt = (request.form.get("amount"))
+    date = request.form.get("date")
+    user_Accounts = run_query(
+        "SELECT * FROM bank_accounts WHERE id=? AND user_id=?",
+        (acc_id,user_id),
+    )
+
+    if user_Accounts:
+        user_Accounts = user_Accounts[0]
+        
+    else:
+        user_Accounts = None
+
+    user_Signatures = run_query(
+        "SELECT * From signatures WHERE id=? AND user_id=?",
+        (sign_id, user_id),
+    )
+
+    if user_Signatures:
+        user_Signatures = user_Signatures[0]
+        image_base64 = user_Signatures["image_base64"]
+        image_url = "data:/png;base64,"+ image_base64
+    else:
+        user_Signatures = None
+        image_url = None
+    
+    return render_template(
+        "transfer_review.html",
+        recipient=recipient,
+        amount=amt,
+        date=date,
+        user_Accounts=user_Accounts,
+        user_Signatures=user_Signatures,
+        account_id=acc_id,
+        signature_id=sign_id,
+        image_url=image_url,
+    )
+
+@app.post("/transfer/confirm")
+def confirm_transfer():
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
     acc_id = int(request.form.get("account_id"))
     sign_id = int(request.form.get("signature_id"))
     recipient = request.form.get("recipient")
     amt = float(request.form.get("amount"))
     date = request.form.get("date")
-    run_query("INSERT INTO PAYMENTS (user_id, account_id, signature_id, recipient, status,amount, date) VALUES (?,?,?,?,?,?,?)",(user_id,acc_id,sign_id,recipient,"CONFIRMED",amt,date),False)
+
+    run_query("INSERT INTO PAYMENTS (user_id, account_id, signature_id, recipient, status,amount, date) VALUES (?,?,?,?,?,?,?)",
+              (user_id,acc_id,sign_id,recipient,"CONFIRMED",amt,date),False)
+    
     payment_id = run_query("SELECT last_insert_rowid() AS last_row", fetch=True)[0]
     payment_id = payment_id["last_row"]
     return redirect(f"/transfer_preview/{payment_id}")
