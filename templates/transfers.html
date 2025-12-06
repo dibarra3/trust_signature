@@ -8,7 +8,6 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <a href="/transfer" class="previous round">&#8249;</a>
         <div class="logo">Trust Signature</div>
         <div>
             
@@ -19,6 +18,7 @@
             </ul>
         </div>
     </nav>
+    <a href="/transfer" class="back-btn">&#8249; Back</a>
 
     <section class = "table-card" style="max-width: 600px;">
         <h1 style = "padding-left: 15px; padding-top: 10px; font-size: xx-large;">Transfers</h1>
@@ -38,7 +38,7 @@
                         <td class="num">{{ payment.amount }}</td>
                         <td class="date">{{ payment.date }}</td>
                         <td>
-                            <a class = "btn" href = "/payments/{{payment.id}}">View</a>
+                            <a class = "create-signature" href = "/payments/{{payment.id}}">View</a>
                         </td>
                     </tr>
                 {% endfor %}
