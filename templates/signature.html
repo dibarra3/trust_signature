@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <div class="logo">Trust Signature</div>
+        <div class="logo"><a href ="/home">Trust Signature</a></div>
         <div>
             
             <ul class="links">    
@@ -55,9 +55,10 @@
             <div class = "signature-stacked">
                 <img class  = "signature-pic" src = "data:image/png;base64,{{ s.image_base64}}" alt="signature">
                 <p>{{ s.label or s.id}}</p>
-                    <form method="post" action="/signature" class="delete-form">
-                       <input type="hidden" name="signature_id" value="{{ s.id }}">
-                    </form>
+                <form method="post" action="/signature/delete" class="delete-form" onsubmit="return confirm('Delete this Signature?');">
+                    <input type="hidden" name="signature_id" value="{{ s.id }}">
+                    <button type = "submit" class = "delete-btn">Delete</button>
+                </form>
             </div>
             
             

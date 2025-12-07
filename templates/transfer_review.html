@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <div class="logo">Trust Signature</div>
+        <div class="logo"><a href ="/home">Trust Signature</a></div>
         <div>
             
             <ul class="links">    
@@ -30,7 +30,7 @@
         <div style = "padding-bottom: 15px;">
         <label>
             <span><strong>Amount: </strong></span>
-            <span> {{amount}}</span>
+            <span> ${{amount}}</span>
         </label>
         </div>
 
@@ -45,7 +45,7 @@
         <div style="padding-bottom: 15px;">
             <label>
                 <span><strong>Account:</strong></span>
-                <span>{{ user_Accounts.bank_name }} – {{ user_Accounts.account_number }}</span>
+                <span>{{user_Accounts.bank_name}} - {{user_Accounts.account_number}}</span>
             </label>
         </div>
         {% endif %}
@@ -55,7 +55,7 @@
         <span><strong>Signature:</strong></span>
         <div style="padding-bottom: 15px;">
             <label>
-                <img src="{{image_url}}" alt="signature" style="width:auto; max-height:100px;">
+                <img src="{{image_url}}" alt="signature" style="width:auto; max-height:150px;">
             </label>
         </div>
         {% endif %}

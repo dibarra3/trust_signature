@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <div class="logo">Trust Signature</div>
+        <div class="logo"><a href ="/home">Trust Signature</a></div>
         <div>
             <ul class="links">
                 <li><a href="/about">About</a></li>
@@ -19,6 +19,12 @@
     <a href="/" class="back-btn">&#8249; Back</a>
     <section class="form-card form-card-center">
         <div class="signin-section" style = "justify-content: center;">
+            {% if error %}
+            <div class = "authentication-error">
+                {{error}}
+            </div>
+            {%endif %}
+
             <h1>Sign in</h1>
             <form method="post" action="/signin" class="stack">
                 <label>

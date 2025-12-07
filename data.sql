@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS signatures (
     user_id INTEGER NOT NULL,
     image_base64 TEXT NOT NULL,
     label TEXT,
+    visible INTEGER DEFAULT 1,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
@@ -35,4 +36,4 @@ CREATE TABLE IF NOT EXISTS payments (
     FOREIGN KEY (user_id) REFERENCES users(id)
     FOREIGN KEY (signature_id) REFERENCES signatures(signature_id)
     FOREIGN KEY (account_id) REFERENCES bank_accounts(id)
-)
+);

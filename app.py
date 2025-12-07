@@ -81,7 +81,7 @@ def get_signature():
 
 
 def get_signatures(user_id):
-    return run_query("SELECT id, image_base64, label FROM signatures WHERE user_id = ? ORDER by id DESC", (user_id,))
+    return run_query("SELECT id, image_base64, label FROM signatures WHERE user_id = ? AND visible = 1 ORDER by id DESC", (user_id,))
 
 @app.post("/profile")
 def post_profile():
@@ -111,6 +111,17 @@ def save_signature():
         return redirect("/signature")
     run_query("INSERT INTO signatures (user_id, image_base64,label) VALUES (?,?, ?)", (user_id, image,label), fetch=False)
     return render_template("signature_preview.html", image_url = "data:/png;base64,"+image)
+
+@app.post("/signature/delete")
+def delete_signature():
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    signature_id = request.form.get("signature_id")
+    if not signature_id:
+        return redirect("/signature")
+    run_query("UPDATE signatures SET visible = 0 WHERE id = ? and user_id = ?", (signature_id, user_id), fetch=False,)
+    return redirect("/signature")
 
 
 @app.get("/transfer")
@@ -250,7 +261,8 @@ def post_signin():
     user = run_query("SELECT * FROM users WHERE email = ?", (email,))
     user =user[0] if user else None
     if not user or not check_password_hash(user["hashed_password"], password):
-        return redirect("/signin")
+        return render_template("signin.html",error="No account found with that email or password. Please Try again", email=email)
+        #return redirect("/signin")
     session.permanent = True
     session["user_id"] = user["id"]
     return redirect("/home")

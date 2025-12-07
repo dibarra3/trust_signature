@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <div class="logo">Trust Signature</div>
+        <div class="logo"><a href ="/home">Trust Signature</a></div>
         <div>
             
             <ul class="links">    
@@ -76,7 +76,7 @@
                 </label>
                 <label>
                     <span>Date</span>
-                    <input name="date" type="date" required>
+                    <input id = "date-input" name="date" type="date" required>
                 </label>
 
                 <button class = "signin btn" type = "submit">Next</button>
@@ -93,5 +93,16 @@
             <a class="signin btn" href="/payments">All Payments</a>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const curDate = new Date();
+            const year= curDate.getFullYear();
+            const month = String(curDate.getMonth()+1).padStart(2,"0");
+            const day =String(curDate.getDate()).padStart(2,"0");
+            const todayDate = `${year}-${month}-${day}`;
+            document.getElementById("date-input").min = todayDate
+        })
+    </script>
     </body>
 </html>
