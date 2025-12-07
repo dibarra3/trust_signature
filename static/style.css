@@ -787,3 +787,18 @@ input[type="file"]:hover::file-selector-button {
     background-color: hsl(0, 0%, 89%);
     border-color: hsl(0, 0%, 60%);
 }
+
+.btn.goback {
+  background-color: hsl(0, 0%, 37%);
+  color: hsl(0, 0%, 100%);
+  align-content: center;
+  border-radius: 25px;
+  min-width: 200px;
+  min-height: 50px;
+  font-size: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+}
+
+.btn.goback:hover {
+    background-color: hsl(0, 0%, 12%);
+}
