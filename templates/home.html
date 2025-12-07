@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <div class="logo">Trust Signature</div>
+        <div class="logo"><a href ="/home">Trust Signature</a></div>
         <div>
             
             <ul class="links">    
@@ -29,11 +29,13 @@
                 </label>
                 <label>
                     <span>Routing Number</span>
-                    <input name="routing" type="text" required/>
+                    <p>6-12 digits</p>
+                    <input name="routing" type="text" pattern="\d{6,12}" inputmode="numeric" maxlength="12" required />
                 </label>
                 <label>
                     <span>Account Number</span>
-                    <input name="account" type="text" required/>
+                    <p>6-12 digits</p>
+                    <input name="account" type="text" pattern="\d{6,12}" inputmode="numeric" maxlength="12" required />
                 </label>
                 <button class="signin btn" type="submit">Add</button>
             </form>

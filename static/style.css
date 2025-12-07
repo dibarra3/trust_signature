@@ -51,6 +51,12 @@ p{
     cursor: default;
 }
 
+.logo a{
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+}
+
 #welcome{
     display: flex;
     align-content: center;
@@ -198,7 +204,6 @@ p{
 
 
 
-
 .btn {
     
     color: buttontext;
@@ -220,7 +225,7 @@ p{
 
 .stack{
     display:grid;
-    gap:14px
+    gap:20px
 }
 
 .form-card{
@@ -319,11 +324,32 @@ p{
   min-width: 200px;
   min-height: 50px;
   font-size: 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
 
 .btn.signin:hover {
     background-color: hsl(211, 59%, 40%);
+}
+
+
+.status-badge{
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: hsl(140, 77%, 39%);
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.authentication-error{
+    background-color: hsl(0, 0%, 86%);
+    color: hsl(0, 85%, 51%);
+    border: 1px solid hsl(0, 0%, 0%);
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 20px;
 }
 
 .empty-warning{
@@ -433,7 +459,7 @@ p{
   font-weight: 600;
   max-width: none;
   white-space: nowrap;
-  text-align: left;
+  text-align: center;
 }
 
 .table-card .title{
@@ -450,6 +476,22 @@ p{
     padding: 60px 16px;
 }
 
+.delete-btn{
+    background: #837c7c;
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    font-size: 14px;
+    padding: 6px 14px;
+    gap: 4px;
+    align-items: center;
+    display: inline-flex;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.delete-btn:hover{
+    background: #403a3a;;
+}
 
 
 .previous {

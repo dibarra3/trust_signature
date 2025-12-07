@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <div class="logo">Trust Signature</div>
+        <div class="logo"><a href ="/home">Trust Signature</a></div>
         <div>
             
             <ul class="links">    
@@ -25,16 +25,17 @@
         <h1 class="h1">Profile</h1>
         <form method = "post" action = "/profile" class ="stack" style= "max-width:425px">
             <label>
-                <span>Full Name</span>
+                <span><strong> Full Name</strong></span>
                 <input name = "username" type = "text" value = "{{user.full_name or '' }}">
             </label>
             <label>
-                <span>Email</span>
+                <span><strong>Email</strong></span>
                 <input name = "email" type ="email" value ="{{user.email or '' }}">
             </label>
             <label>
-                <span>Phone Number</span>
-                <input name = "phone" type = "text" value = "{{user.phone or '' }}">
+                <span><strong>Phone Number</strong></span>
+                <p>Enter all 10 digits</p>
+                <input name = "phone" type = "text" pattern="\d{10}" maxlength="10" minlength="10" inputmode="numeric" placeholder="1234567890" value = "{{user.phone or '' }}">
             </label>
             <button class = "signin btn" type = "submit">Save</button>
         </form>

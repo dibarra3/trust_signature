@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <div class="logo">Trust Signature</div>
+        <div class="logo"><a href ="/home">Trust Signature</a></div>
         <div>
             
             <ul class="links">    
@@ -35,7 +35,7 @@
                 {% for payment in payments %}
                     <tr>
                         <td class="bank-name">{{ payment.recipient }}</td>
-                        <td class="num">{{ payment.amount }}</td>
+                        <td class="num">${{ payment.amount }}</td>
                         <td class="date">{{ payment.date }}</td>
                         <td>
                             <a class = "create-signature" href = "/payments/{{payment.id}}">View</a>

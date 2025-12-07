@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <div class="logo">Trust Signature</div>
+        <div class="logo"><a href ="/home">Trust Signature</a></div>
         <div>
             
             <ul class="links">    
@@ -18,7 +18,7 @@
             </ul>
         </div>
     </nav>
-    <a href="/transfers" class="back-btn">&#8249; Back</a>
+    <a href="/payments" class="back-btn">&#8249; Back</a>
     <section class = "table-card" style = "text-align: center; padding:10px; max-width: 650px;">
         <h1 style = "padding-bottom: 20px; font-size: xx-large;">Payment</h1>
         <div style = "padding-bottom: 15px;">
@@ -30,7 +30,7 @@
         <div style = "padding-bottom: 15px;">
         <label>
             <span><strong>Amount: </strong></span>
-            <span> {{payment.amount}}</span>
+            <span> ${{payment.amount}}</span>
         </label>
         </div>
 
@@ -43,11 +43,11 @@
         <div style = "padding-bottom: 15px;">
         <label>
             <span><strong>Status: </strong></span>
-            <span> {{payment.status}}</span>
+            <span class = "status-badge"> {{payment.status}}</span>
         </label>
         </div>
         <label>
-            <img src = "{{image_url}}" alt = "signature" style = "width:auto; max-height:100px;">
+            <img src = "{{image_url}}" alt = "signature" style = "width:auto; max-height:150px;">
         </label>
         <p style = "padding-bottom: 15px;">Stamped With your Trust Signature</p>
         <label>
