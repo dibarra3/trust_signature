@@ -143,7 +143,7 @@ def get_transfer():
     if not user_id:
         return redirect("/signin")
     bank_accounts = run_query("SELECT * FROM bank_accounts WHERE user_id =?", (user_id,))
-    signatures = run_query("SELECT * FROM signatures WHERE user_id =?", (user_id,))
+    signatures = run_query("SELECT * FROM signatures WHERE user_id =? AND visible = 1", (user_id,))
     return render_template("transfer.html", bank_accounts=bank_accounts, signatures= signatures)
 
 @app.post("/transfer")
