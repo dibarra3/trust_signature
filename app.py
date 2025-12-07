@@ -3,6 +3,8 @@ import sqlite3
 import base64
 from flask import Flask, render_template, g, request, redirect, session
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
+
 
 app = Flask(__name__, instance_relative_config=True)
 
@@ -31,6 +33,18 @@ def run_query(query, args=(), fetch=True):
         g.db.commit()
     cur.close()
     return rows
+
+def format_date_us(date_str: str) -> str:
+    if not date_str:
+        return date_str
+    try:
+        return datetime.strptime(date_str, "%Y-%m-%d").strftime("%m/%d/%Y")
+    except ValueError:
+        return date_str
+
+@app.template_filter("usdate")
+def usdate_filter(value):
+    return format_date_us(value)
 
 @app.route("/")
 def index():
@@ -132,6 +146,7 @@ def post_transfer():
     recipient = request.form.get("recipient")
     amt = (request.form.get("amount"))
     date = request.form.get("date")
+    display_date = format_date_us(date)
     user_Accounts = run_query(
         "SELECT * FROM bank_accounts WHERE id=? AND user_id=?",
         (acc_id,user_id),
@@ -160,7 +175,7 @@ def post_transfer():
         "transfer_review.html",
         recipient=recipient,
         amount=amt,
-        date=date,
+        date=display_date,
         user_Accounts=user_Accounts,
         user_Signatures=user_Signatures,
         account_id=acc_id,
@@ -177,7 +192,8 @@ def confirm_transfer():
     sign_id = int(request.form.get("signature_id"))
     recipient = request.form.get("recipient")
     amt = float(request.form.get("amount"))
-    date = request.form.get("date")
+    raw_date = request.form.get("date") 
+    date = datetime.strptime(raw_date, "%m/%d/%Y").strftime("%Y-%m-%d")
 
     run_query("INSERT INTO PAYMENTS (user_id, account_id, signature_id, recipient, status,amount, date) VALUES (?,?,?,?,?,?,?)",
               (user_id,acc_id,sign_id,recipient,"CONFIRMED",amt,date),False)
@@ -196,6 +212,8 @@ def get_transfer_preview(payment_id):
     if not payment_info:
         return redirect("/payment")
     payment_info = payment_info[0]
+    payment_dict = dict(payment_info)
+    payment_dict["date"] = format_date_us(payment_dict["date"])
     signature_id = payment_info["signature_id"]
     signature_info = run_query("SELECT * FROM signatures WHERE id=? AND user_id=?", (signature_id, user_id))
     if not signature_info:
@@ -204,7 +222,7 @@ def get_transfer_preview(payment_id):
     signature = signature_info[0]
     image_base64 = signature["image_base64"]
     #print(signature["image_base64"])
-    return render_template("transfer_preview.html", payment = payment_info, image_url = "data:/png;base64,"+ image_base64)
+    return render_template("transfer_preview.html", payment = payment_dict, image_url = "data:/png;base64,"+ image_base64)
 
 @app.get("/payments/<int:payment_id>")
 def get_payment_id(payment_id):
@@ -215,6 +233,8 @@ def get_payment_id(payment_id):
     if not payment_info:
         return redirect("/payment")
     payment_info = payment_info[0]
+    payment_dict = dict(payment_info)
+    payment_dict["date"] = format_date_us(payment_dict["date"])
     signature_id = payment_info["signature_id"]
     signature_info = run_query("SELECT * FROM signatures WHERE id=? AND user_id=?", (signature_id, user_id))
     if not signature_info:
@@ -223,7 +243,7 @@ def get_payment_id(payment_id):
     signature = signature_info[0]
     image_base64 = signature["image_base64"]
     #print(signature["image_base64"])
-    return render_template("view_transfer.html", payment = payment_info, image_url = "data:/png;base64,"+ image_base64)
+    return render_template("view_transfer.html", payment = payment_dict, image_url = "data:/png;base64,"+ image_base64)
 
 
 @app.get("/payments")
@@ -232,6 +252,10 @@ def get_payments():
     if not user_id:
         return redirect("/signin")
     payments = run_query("SELECT * FROM payments WHERE user_id =? ORDER BY id DESC",(user_id,))
+    payments = [dict(p) for p in payments]
+    for p in payments:
+        p["date"] = format_date_us(p["date"])
+        
     return render_template("transfers.html", payments=payments)
 
 
