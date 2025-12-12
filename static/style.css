@@ -225,7 +225,7 @@ p{
 
 .stack{
     display:grid;
-    gap:20px
+    gap:30px
 }
 
 .form-card{
@@ -461,6 +461,14 @@ p{
   white-space: nowrap;
   text-align: center;
 }
+
+.bank-table tbody tr:nth-child(odd){
+    background-color: #ffffff;
+}
+.bank-table tbody tr:nth-child(even){
+    background-color: #c0c0c0;
+}
+
 
 .table-card .title{
     text-align: center;
