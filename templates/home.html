@@ -50,12 +50,13 @@
                     <th>Bank</th>
                     <th class ="num">Routing</th>
                     <th class = "num">Account</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody class="bank-table">
                 {% if bank_accounts|length == 0%}
                     <tr class ="placeholder-row">
-                        <td colspan="3" class = "placeholder-data">
+                        <td colspan="4" class = "placeholder-data">
                             Nothing Added Yet.
                         </td>
                     </tr>
@@ -66,6 +67,12 @@
                             <td class="bank-name">{{ bank_account.bank_name }}</td>
                             <td class="num">{{ bank_account.routing_number }}</td>
                             <td class="num">{{ bank_account.account_number }}</td>
+                            <td>
+                                <form method="post" action="/bank/delete" class="delete-form" onsubmit="return confirm('Delete this Bank Account?');">
+                                    <input type="hidden" name="bank_id" value="{{bank_account.id}}">
+                                    <button type = "submit" class = "delete-btn">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     {% endfor %}
                 {%endif %}

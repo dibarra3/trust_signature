@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS bank_accounts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
     bank_name TEXT,
+    visible INTEGER DEFAULT 1,
     routing_number INTEGER,
     account_number INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)

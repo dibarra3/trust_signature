@@ -136,13 +136,23 @@ def delete_signature():
     run_query("UPDATE signatures SET visible = 0 WHERE id = ? and user_id = ?", (signature_id, user_id), fetch=False,)
     return redirect("/signature")
 
+@app.post("/bank/delete")
+def delete_bank():
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect("/signin")
+    bank_id = request.form.get("bank_id")
+    if not bank_id:
+        return redirect("/home")
+    run_query("UPDATE bank_accounts SET visible = 0 WHERE id = ? and user_id = ?", (bank_id, user_id), fetch=False)
+    return redirect("/home")
 
 @app.get("/transfer")
 def get_transfer():
     user_id = session.get("user_id")
     if not user_id:
         return redirect("/signin")
-    bank_accounts = run_query("SELECT * FROM bank_accounts WHERE user_id =?", (user_id,))
+    bank_accounts = run_query("SELECT * FROM bank_accounts WHERE user_id =? AND visible = 1", (user_id,))
     signatures = run_query("SELECT * FROM signatures WHERE user_id =? AND visible = 1", (user_id,))
     return render_template("transfer.html", bank_accounts=bank_accounts, signatures= signatures)
 
@@ -274,7 +284,7 @@ def get_home():
     user_id = session.get("user_id")
     if not user_id:
         return redirect("/signin")
-    accounts= run_query("SELECT * FROM bank_accounts WHERE user_id = ?", (user_id,))
+    accounts= run_query("SELECT * FROM bank_accounts WHERE user_id = ? AND visible = 1", (user_id,))
     return render_template("home.html", bank_accounts=accounts)
 
 @app.post("/signin")
