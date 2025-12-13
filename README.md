@@ -38,6 +38,17 @@ Sample Username and Password:
 Note that you can also create your own account if you would like, each payment and signature that you add will stay attached to your account.
 
 
+### Changes since DP4:
+We took the feedback from our fellow students and TAs and made modifications to our app.
+Note that these changes are discussed in depth with pictures in our DP6 PPTX file.
+Most notably these changes include: 
+* Spreading out the content horizontally to make more use of the screen real estate.
+* Changing from small selection menus to large buttons that display all the data clearly and demonstrates that one must be chosen.
+* A larger back button to make traversal clearer.
+* Input validation to only allow for the correct inputs that do not throw errors.
+* Additionally, there are now options to delete your bank and signatures if you do not want them anymore. They will not be a selectable option, but they will still be visible on past payments.
+
+
 
 ### UI Work Flow
 #### 1. Sign In / Registration
